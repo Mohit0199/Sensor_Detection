@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.8-slim-buster
 
 # Install build essentials
 RUN apt-get update && apt-get install -y build-essential
@@ -10,7 +10,7 @@ RUN pip install --upgrade pip setuptools
 RUN pip install Cython
 
 # Install PyYAML separately
-RUN pip install PyYAML>=6.0
+RUN pip install PyYAML==5.4.1
 
 # Install other dependencies
 COPY requirements.txt .
