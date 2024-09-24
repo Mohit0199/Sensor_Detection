@@ -1,12 +1,9 @@
-FROM python:3.10
+FROM python:3.10-slim-buster
 
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install --upgrade pip setuptools
-RUN pip install Cython  # Install Cython first
-RUN pip install -r requirements.txt
+COPY . /app
 
-COPY . .
+RUN pip install -r requirements.txt
 
 CMD ["python3", "app.py"]
